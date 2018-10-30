@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Atmel Studio Solution File, Format Version 11.00
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "TCB_8bit_PWM", "TCB_8bit_PWM\TCB_8bit_PWM.cproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "TCB_Time-Out_Check", "TCB_Time-Out_Check\TCB_Time-Out_Check.cproj", "{AAD64AB4-88BB-484E-B194-66A30C2E5ADB}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "TCB_Sleep_Operation", "TCB_Sleep_Operation\TCB_Sleep_Operation.cproj", "{A710FA42-03A7-40CC-9EE9-2031C731D274}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|AVR.ActiveCfg = Debug|AVR
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|AVR.Build.0 = Debug|AVR
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|AVR.ActiveCfg = Release|AVR
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|AVR.Build.0 = Release|AVR
+		{AAD64AB4-88BB-484E-B194-66A30C2E5ADB}.Debug|AVR.ActiveCfg = Debug|AVR
+		{AAD64AB4-88BB-484E-B194-66A30C2E5ADB}.Debug|AVR.Build.0 = Debug|AVR
+		{AAD64AB4-88BB-484E-B194-66A30C2E5ADB}.Release|AVR.ActiveCfg = Release|AVR
+		{AAD64AB4-88BB-484E-B194-66A30C2E5ADB}.Release|AVR.Build.0 = Release|AVR
+		{A710FA42-03A7-40CC-9EE9-2031C731D274}.Debug|AVR.ActiveCfg = Debug|AVR
+		{A710FA42-03A7-40CC-9EE9-2031C731D274}.Debug|AVR.Build.0 = Debug|AVR
+		{A710FA42-03A7-40CC-9EE9-2031C731D274}.Release|AVR.ActiveCfg = Release|AVR
+		{A710FA42-03A7-40CC-9EE9-2031C731D274}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
