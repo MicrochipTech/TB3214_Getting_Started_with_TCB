@@ -42,7 +42,7 @@ void TCB0_init (void)
     TCB0.EVCTRL = TCB_CAPTEI_bm | TCB_EDGE_bm; /* Enable Event Input and Event Edge*/
 }
 
-void EVENT_SYSTEM_Init (void)
+void EVENT_SYSTEM_init (void)
 {
     EVSYS.CHANNEL0 = EVSYS_GENERATOR_PORT1_PIN2_gc; /* Port 1 Pin 2 */
     EVSYS.USERTCB0 = EVSYS_CHANNEL_CHANNEL0_gc; /* Connect user to event channel 0 */
@@ -70,7 +70,7 @@ int main(void)
     }
     
     TCB0_init();
-    EVENT_SYSTEM_Init();
+    EVENT_SYSTEM_init();
     
     PORTB.DIR |= PIN5_bm; /* Configure PB5 as digital output */
     PORTB.OUT |= PIN5_bm; /* Set initial level of PB5 */
