@@ -79,6 +79,9 @@ int main(void)
     
     sei(); /* Enable Global Interrupts */
     
-    while (1);
+    while (1)
+    {
+        ;
+    }        
 }
 

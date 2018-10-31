@@ -52,8 +52,8 @@ int main(void)
     CPU_CCP = CCP_IOREG_gc;
     /* Select 32KHz Internal Ultra Low Power Oscillator (OSCULP32K) */
     CLKCTRL.MCLKCTRLA = CLKCTRL_CLKSEL_OSCULP32K_gc;
-    /* wait for system oscillator changing to finish */
     
+    /* wait for system oscillator changing to finish */
     while (CLKCTRL.MCLKSTATUS & CLKCTRL_SOSC_bm)
     {
         ;
@@ -64,5 +64,8 @@ int main(void)
     
     TCB3_init();
     
-    while (1);
+    while (1)
+    {
+        ;
+    }
 }
