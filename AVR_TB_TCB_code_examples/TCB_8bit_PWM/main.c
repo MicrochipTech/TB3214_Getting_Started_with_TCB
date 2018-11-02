@@ -27,21 +27,8 @@
 
 #include <avr/io.h>
 
-void TCB3_init (void)
-{
-    /* Compare or Capture: 0x80FF */
-    TCB3.CCMP = 0x80FF;
-
-    /* Enable TCB3 and Divide CLK_PER by 2 */
-    TCB3.CTRLA |= TCB_ENABLE_bm;
-    TCB3.CTRLA |= TCB_CLKSEL_CLKDIV2_gc;
-    
-    /* Enable Pin Output and configure TCB in 8-bit PWM mode */
-    TCB3.CTRLB |= TCB_CCMPEN_bm;
-    TCB3.CTRLB |= TCB_CNTMODE_PWM8_gc;
-}
-
-int main(void)
+/* Clock initialization function */
+void CLOCK_init (void)
 {
     /* Write "IOREG" key to CPU.CPP */
     CPU_CCP = CCP_IOREG_gc;
@@ -57,11 +44,35 @@ int main(void)
     while (CLKCTRL.MCLKSTATUS & CLKCTRL_SOSC_bm)
     {
         ;
-    }    
-    
+    }
+}
+
+/* Port initialization function */
+void PORT_init (void)
+{
     PORTB_DIR |= PIN5_bm;
     PORTB_OUT |= PIN5_bm;
+}
+
+/* TCB3 initialization function */
+void TCB3_init (void)
+{
+    /* Capture or Compare: 0x80FF */
+    TCB3.CCMP = 0x80FF;
+
+    /* Enable TCB3 and Divide CLK_PER by 2 */
+    TCB3.CTRLA |= TCB_ENABLE_bm;
+    TCB3.CTRLA |= TCB_CLKSEL_CLKDIV2_gc;
     
+    /* Enable Pin Output and configure TCB in 8-bit PWM mode */
+    TCB3.CTRLB |= TCB_CCMPEN_bm;
+    TCB3.CTRLB |= TCB_CNTMODE_PWM8_gc;
+}
+
+int main(void)
+{
+    CLOCK_init();
+    PORT_init();
     TCB3_init();
     
     while (1)

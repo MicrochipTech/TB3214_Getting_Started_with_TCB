@@ -29,16 +29,47 @@
 #include <avr/interrupt.h>
 #include <avr/sleep.h>
 
+/* Clock initialization function */
+void CLOCK_init (void)
+{
+    /* Write "IOREG" key to CPU.CPP */
+    CPU_CCP = CCP_IOREG_gc; 
+    /* Disable CLK_PER Prescaler */
+    CLKCTRL.MCLKCTRLB = 0 << CLKCTRL_PEN_bp; 
+    
+    /* Write "IOREG" key to CPU.CPP */
+    CPU_CCP = CCP_IOREG_gc; 
+    /* Select 32KHz Internal Ultra Low Power Oscillator (OSCULP32K) */
+    CLKCTRL.MCLKCTRLA = CLKCTRL_CLKSEL_OSCULP32K_gc;
+    
+    /* wait for system oscillator changing to finish */
+    while (CLKCTRL.MCLKSTATUS & CLKCTRL_SOSC_bm)
+    {
+        ;
+    }
+}
+
+/* Port initialization function */
+void PORT_init (void)
+{
+    PORTB.DIR |= PIN5_bm; /* Configure PB5 as digital output */
+    PORTB.OUT |= PIN5_bm; /* Set initial level of PB5 */
+}
+
+/* TCB0 initialization function */
 void TCB0_init (void)
 {
-    TCB0.CCMP = 0x7fff; /* Load the Compare or Capture register with the timeout value*/
+    /* Load the Compare or Capture register with the timeout value*/
+    TCB0.CCMP = 0x7fff;
    
     /* Enable TCB and set CLK_PER divider to 1 (No Prescaling) */
     TCB0.CTRLA = TCB_CLKSEL_CLKDIV1_gc | TCB_ENABLE_bm | TCB_RUNSTDBY_bm;
     
-    TCB0.INTCTRL = TCB_CAPT_bm; /* Enable Capture or Timeout interrupt */
+    /* Enable Capture or Timeout interrupt */
+    TCB0.INTCTRL = TCB_CAPT_bm;
 }
 
+/* Interrupt Service Routine for TCB0 interrupt */
 ISR(TCB0_INT_vect)
 {
     TCB0.INTFLAGS = TCB_CAPT_bm; /* Clear the interrupt flag */
@@ -47,28 +78,14 @@ ISR(TCB0_INT_vect)
 
 int main(void)
 {
-    CPU_CCP = CCP_IOREG_gc; /* Write "IOREG" key to CPU.CPP */
-    CLKCTRL.MCLKCTRLB = 0 << CLKCTRL_PEN_bp; /* Disable CLK_PER Prescaler */
-    
-    CPU_CCP = CCP_IOREG_gc; /* Write "IOREG" key to CPU.CPP */
-    /* Select 32KHz Internal Ultra Low Power Oscillator (OSCULP32K) */
-    CLKCTRL.MCLKCTRLA = CLKCTRL_CLKSEL_OSCULP32K_gc;
-    /* wait for system oscillator changing to finish */
-    
-    while (CLKCTRL.MCLKSTATUS & CLKCTRL_SOSC_bm)
-    {
-        ;
-    }
-   
+    CLOCK_init();
+    PORT_init();
     TCB0_init();
-   
-    PORTB.DIR |= PIN5_bm; /* Configure PB5 as digital output */
-    PORTB.OUT |= PIN5_bm; /* Set initial level of PB5 */
     
     sei(); /* Enable Global Interrupts */
     
     while (1)
     {
-        sleep_cpu();
+        sleep_cpu(); /* Put CPU to sleep */
     }
 }
