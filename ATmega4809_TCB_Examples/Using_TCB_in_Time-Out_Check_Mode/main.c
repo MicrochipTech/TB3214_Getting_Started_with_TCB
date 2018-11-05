@@ -28,6 +28,11 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
+void CLOCK_init (void);
+void PORT_init (void);
+void EVENT_SYSTEM_init (void);
+void TCB0_init (void);
+
 void CLOCK_init (void)
 {
     /* Enable writing to protected register */
@@ -51,13 +56,13 @@ void PORT_init (void)
 {
     PORTB.DIR |= PIN5_bm; /* Configure PB5 as digital output */
     PORTB.OUT |= PIN5_bm; /* Set initial level of PB5 */
-    PORTB.DIR &= ~(PIN2_bm); /* Configure PB2 as digital input */
+    PORTB.DIR &= ~PIN2_bm; /* Configure PB2 as digital input */
     PORTB.PIN2CTRL = PORT_PULLUPEN_bm; /* Enable the internal pullup */
 }
 
 void EVENT_SYSTEM_init (void)
 {
-    EVSYS.CHANNEL0 = EVSYS_GENERATOR_PORT1_PIN2_gc; /* Port 1 Pin 2 */
+    EVSYS.CHANNEL0 = EVSYS_GENERATOR_PORT1_PIN2_gc; /* Set Port 1 Pin 2 (PB2) as input event*/
     EVSYS.USERTCB0 = EVSYS_CHANNEL_CHANNEL0_gc; /* Connect user to event channel 0 */
 }
 

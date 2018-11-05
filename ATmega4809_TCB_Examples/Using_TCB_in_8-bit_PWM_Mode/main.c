@@ -29,6 +29,10 @@
 
 #define TCB_CMP_EXAMPLE_VALUE   (0x80FF)
 
+void CLOCK_init (void);
+void PORT_init (void);
+void TCB3_init (void);
+
 void CLOCK_init (void)
 {
     /* Enable writing to protected register */
