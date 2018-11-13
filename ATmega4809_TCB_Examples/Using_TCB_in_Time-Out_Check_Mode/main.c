@@ -62,8 +62,10 @@ void PORT_init (void)
 
 void EVENT_SYSTEM_init (void)
 {
-    EVSYS.CHANNEL0 = EVSYS_GENERATOR_PORT1_PIN2_gc; /* Set Port 1 Pin 2 (PB2) as input event*/
-    EVSYS.USERTCB0 = EVSYS_CHANNEL_CHANNEL0_gc; /* Connect user to event channel 0 */
+    /* Set Port 1 Pin 2 (PB2) as input event*/
+    EVSYS.CHANNEL0 = EVSYS_GENERATOR_PORT1_PIN2_gc;
+    /* Connect user to event channel 0 */
+    EVSYS.USERTCB0 = EVSYS_CHANNEL_CHANNEL0_gc;
 }
 
 void TCB0_init (void)
