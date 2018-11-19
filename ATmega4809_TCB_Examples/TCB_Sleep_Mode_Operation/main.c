@@ -32,6 +32,7 @@
 #define TCB_CMP_EXAMPLE_VALUE   (0x7fff)
 
 void CLOCK_init (void);
+void SLPCTRL_init (void);
 void PORT_init (void);
 void TCB0_init (void);
 
@@ -52,6 +53,12 @@ void CLOCK_init (void)
     {
         ;
     }
+}
+
+void SLPCTRL_init (void)
+{
+    /* Enable sleep mode and select Standby mode */
+    SLPCTRL.CTRLA = SLPCTRL_SMODE_gm | SLPCTRL_SMODE_STDBY_gc;
 }
 
 void PORT_init (void)
@@ -81,6 +88,7 @@ ISR(TCB0_INT_vect)
 int main(void)
 {
     CLOCK_init();
+    SLPCTRL_init();
     PORT_init();
     TCB0_init();
     
