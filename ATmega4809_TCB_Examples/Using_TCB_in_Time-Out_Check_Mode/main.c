@@ -28,6 +28,8 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
+#define TCB_TIMEOUT_VALUE 0x7fff
+
 void CLOCK_init (void);
 void PORT_init (void);
 void EVENT_SYSTEM_init (void);
@@ -71,7 +73,7 @@ void EVENT_SYSTEM_init (void)
 void TCB0_init (void)
 {
     /* Load the Compare or Capture register with the timeout value*/
-    TCB0.CCMP = 0x7fff;
+    TCB0.CCMP = TCB_TIMEOUT_VALUE;
     
     /* Enable TCB and set CLK_PER divider to 1 (No Prescaling) */
     TCB0.CTRLA = TCB_CLKSEL_CLKDIV1_gc | TCB_ENABLE_bm;
@@ -89,7 +91,7 @@ void TCB0_init (void)
 ISR(TCB0_INT_vect)
 {
     TCB0.INTFLAGS = TCB_CAPT_bm; /* Clear the interrupt flag */
-    PORTB.IN = PIN5_bm; /* Toggle PB5 GPIO */
+    PORTB.OUTTGL = PIN5_bm; /* Toggle PB5 GPIO */
 }
 
 int main(void)

@@ -95,7 +95,7 @@ int main(void)
     sei(); /* Enable Global Interrupts */
     
     while (1)
-    {
-        sleep_cpu(); /* Put CPU to sleep */
+    {   
+        sleep_mode();
     }
 }
