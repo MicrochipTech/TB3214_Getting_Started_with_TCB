@@ -1,8 +1,8 @@
 ATmega4809_TCB_Examples_TBXX
 
-This repository contains examples of bare metal source code for TCB as described in TBXXX document from Microchip. The repository contains an Atmel Studio Solution with multiple projects inside. Make sure you have the necessary tools:
+This repository contains examples of bare metal source code for TCB as described in TB3214 document from Microchip. The repository contains an Atmel Studio Solution with multiple projects inside. Make sure you have the necessary tools:
 
-    ATmega4809 device (or evaluation board ATmega4809 X-plained PRO)
+    ATmega4809 device (or the ATmega4809 X-plained PRO evaluation board)
     Atmel Studio
     ATmega4809 Device Packs
 
