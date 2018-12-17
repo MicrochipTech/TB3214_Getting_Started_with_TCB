@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Atmel Studio Solution File, Format Version 11.00
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "TCB_Sleep_Mode_Operation", "TCB_Sleep_Mode_Operation\TCB_Sleep_Mode_Operation.cproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Using_TCB_in_Sleep_Mode", "TCB_Sleep_Mode_Operation\Using_TCB_in_Sleep_Mode.cproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
 EndProject
 Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Using_TCB_in_8-bit_PWM_Mode", "Using_TCB_in_8-bit_PWM_Mode\Using_TCB_in_8-bit_PWM_Mode.cproj", "{78864DB1-5950-4FB6-88C9-D0C6C5F065CD}"
 EndProject
