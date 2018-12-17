@@ -1,4 +1,4 @@
-ATmega4809_TCB_Examples_TBXX
+ATmega4809_TCB_Examples
 
 This repository contains examples of bare metal source code for TCB as described in TB3214 document from Microchip. The repository contains an Atmel Studio Solution with multiple projects inside. Make sure you have the necessary tools:
 
