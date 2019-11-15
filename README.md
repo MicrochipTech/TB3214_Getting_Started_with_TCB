@@ -11,3 +11,5 @@ The following examples are inside this repository:
     1. TCB_Sleep_Mode_Operation
 	2. Using_TCB_in_8-bit_PWM_Mode
 	3. Using_TCB_in_Time-Out_Check_Mode
+
+Getting Started with TCB Tech Brief link: http://ww1.microchip.com/downloads/en/Appnotes/TB3214-Getting-Started-with-TCB-90003214A.pdf
